@@ -2,9 +2,10 @@
 """GitHub Trending Daily — fetch & send to Slack."""
 
 import sys, re, json, subprocess, os
+from datetime import date
 
+TODAY = date.today().isoformat()
 WEBHOOK_URL = os.environ.get("SLACK_WEBHOOK_URL", "")
-TODAY = os.environ.get("TODAY_VAR", "")
 
 if not WEBHOOK_URL:
     print("SLACK_WEBHOOK_URL not set")
